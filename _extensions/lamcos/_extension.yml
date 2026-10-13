@@ -13,7 +13,7 @@ contributes:
       center-title-slide: false
       # Set resources
       format-resources: 
-        - img
+        - img/
       # Set logo
       logo: _extensions/lamcos/img/logo-lamcos-couleur.png
       # smaller: true
