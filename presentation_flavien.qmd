@@ -1,0 +1,343 @@
+---
+title: "Présentation au conseil du laboratoire"
+subtitle: "Équipe MULTIMAP"
+format:
+  lamcos-revealjs: default
+author:
+  - name: Flavien Loiseau
+    affiliations:
+      - name: INSA Lyon, CNRS, LaMCoS, UMR5259, 69621 Villeurbanne, France
+date: 2026-10-15
+bibliography: biblio.bib
+---
+
+# Mon parcours jusqu'à maintenant ...
+
+## Formation
+
+:::: {.columns}
+::: {.column width="15%"}
+2011--2014
+:::
+
+::: {.column width="85%"}
+**BAC Technologique STI2D ITEC**
+:::
+::::
+
+:::: {.columns}
+::: {.column width="15%"}
+2014--2016
+:::
+
+::: {.column width="85%"}
+**CPGE Techniques et Sciences Industrielles**
+:::
+::::
+
+:::: {.columns}
+::: {.column width="15%"}
+
+2016--2020
+
+:::
+
+::: {.column width="85%"}
+
+**ENS Paris-Saclay**
+
+:::{.muted}
+*Spécialisation en mécanique des matériaux.*
+:::
+:::
+::::
+
+:::: {.columns}
+::: {.column width="15%"}
+2020--2023
+:::
+
+::: {.column width="85%"}
+**Thèse au Laboratoire de Mécanique Paris-Saclay**
+
+:::{.muted}
+*Encadrée par Rodrigue Desmorat et Cécile Oliver-Leblond*
+:::
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="15%"}
+2024--2026
+:::
+
+::: {.column width="85%"}
+**Post-doctorat à l'IMSIA** (ENSTA)
+
+:::{.muted}
+*Encadré par Véronique Lazarus*
+:::
+:::
+::::
+
+## Thèse au LMPS
+
+:::: {.columns}
+
+::: {.column width="22%"}
+**2020--2023**
+
+![](figures/logo_lmps.svg){width="20%" .absolute top=16%}
+:::
+
+::: {.column width="57%"}
+**Formulation de l'endommagement anisotrope <br> des matériaux et stuctures quasi-fragiles <br> basée sur la simulation discrète de la fissuration**
+:::
+
+::: {.column width="21%"}
+R. Desmorat <br> C. Oliver-Leblond
+:::
+
+::::
+
+[{{< fa bullseye >}} **Model damage in micro-cracking material from discrete simulations** $\rightarrow \boldsymbol{\sigma} = \tilde{\mathbf{E}}(\mathbf{D}) : \boldsymbol{\varepsilon}$]{.alert}
+
+::::{.columns}
+
+:::{.column width=33%}
+1. Discrete simulations
+
+::: {layout-ncol=2}
+
+:::{.footnotesize}
+<br>
+21 loads <br>
+36 $\mu$-structures <br>
+$\to$ 76k steps
+:::
+
+
+![](figures/2023_thesis_discrete_simulation_1.jpg){width=5cm}
+
+![](figures/2023_thesis_discrete_simulation_2.jpg){width=5cm}
+
+![](figures/2023_thesis_discrete_simulation_3.jpg){width=5cm}
+
+:::
+
+:::
+
+:::{.column width=33%}
+2. Effective elasticity tensors
+
+![](figures/2023_thesis_elas_evolution.svg){width=80%}
+
+[{{< fa magnifying-glass >}} Analysis of symmetry classes]{.footnotesize}
+
+:::
+
+:::{.column width=33%}
+
+3. Modelling
+
+:::{.footnotesize}
+
+a. Damage definition
+  $$\mathbf{D} = \mathbf{1} - \frac{1}{\kappa_0} \mathrm{tr}_{12} (\mathbf{E})$$
+
+b. Harmonic decomp.
+
+:::
+
+![](figures/2023_thesis_harmonic_decomposition.svg){width=100%}
+
+:::
+::::
+
+:::{.footer}
+{{< fa book >}} @loiseau_anisotropic_2023 and @vedrine_calibration_2025 &emsp; {{< fa database >}} Dataset: [https://doi.org/10.57745/LYHM4W](https://doi.org/10.57745/LYHM4W)
+:::
+
+:::{.notes}
+- Endommagement anisotrope des matériaux quasi-fragiles (hétérogènes)
+- Basé sur simulation discrète (voir figure) représentant explicitement la micro-fissuration
+- Idée : mesurer l'évolution du tenseur d'élasticité d'un VER sous différents chargements
+- Ensuite, analyse via outils mathématiques (distance aux classes de symétrie)
+- Ensuite, définition d'une variable d'endo puis formulation de la loi d'état : tenseur d'élasticité en fonction de l'endo via la décomposition harmonique.
+- Cas de l'évolution : traité mais pasz abouti.
+:::
+
+## Postdoc - Overview
+
+:::: {.columns}
+::: {.column width="22%"}
+**2024--2026**
+
+![](figures/logo_ensta.svg){width="70%" fig-align="left"}
+:::
+
+::: {.column width="59%"}
+**Theoretical and numerical study of crack propagation <br> in heterogenous and/or anisotropic materials**
+:::
+
+::: {.column width="19%"}
+V. Lazarus
+:::
+
+::::
+
+[**{{< fa wrench >}} Open-source codes for 2D crack propagation**]{.alert .large}
+
+::::{.columns}
+:::{.column width=40%}
+
+<br>
+
+[[{{< fa brands github >}} **floiseau/gcrack**]{.example}](https://github.com/floiseau/gcrack) [(LEFM¹)]{.muted}
+
+[[{{< fa brands github >}} **floiseau/fragma**]{.example}](https://github.com/floiseau/fragma) [(phase-field)]{.muted}
+
+::::::{.columns}
+:::::{.column width=55%}
+- Load control <br> [(path-following)]{.muted}
+- Fracture anisotropy
+:::::
+
+:::::{.column width=45%}
+
+- Heterogeneities [(fragma)]{.muted}
+- Fatigue [(gcrack)]{.muted}
+
+:::::
+::::::
+
+:::
+
+:::{.column width=60%}
+
+![Fracture of a 3D-printed polycarbonate specimen. <br> Experiments by @zhai_fdm-based_2025 at IMSIA.](figures/postdoc_gcrack_anisotropic_fracture.svg){width=100%}
+
+:::
+::::
+
+:::{.footer}
+1. LEFM = Linear Elastic Fracture Mechanics
+:::
+
+## Postdoc - Numerical Aspects
+[{{< fa bullseye >}} Develop robust numerical tools for crack propagation in anisotropic materials]{.alert .large}
+
+::::{.columns}
+
+:::{.column width=33% .fragment}
+
+#### Load control
+:::{.footnotesize}
+{{< fa book >}} @loiseau_path-following_2026
+:::
+
+Force load + Fracture = Instable
+
+[{{< fa cubes >}} Novel path-following method]{.muted}
+
+![](figures/postdoc_comparison_gcrack_fragma.svg){width=100%}
+
+:::
+
+:::{.column width=66% .fragment}
+
+#### Limiting numerical bias in phase-field simulations of fracture
+
+::::::{.columns}
+:::::{.column width=37%}
+**Initial cracks**
+
+[{{< fa book >}} @loiseau_how_2025]{.footnotesize}
+
+[{{< fa cubes >}} Initial crack in <br> &nbsp;&nbsp;&nbsp;&nbsp; phase-field fracture <br> &nbsp;&nbsp;&nbsp;&nbsp; with no bias]{.muted}
+
+:::::
+
+:::::{.column width=62%}
+![](figures/postdoc_initial_cracks.svg){width=100%}
+:::::
+::::::
+
+::::::{.columns .fragment}
+:::::{.column width=38%}
+**Mesh-induced bias**
+
+[{{< fa user-friends >}} Zembra \& Henry (PMC)]{.footnotesize}
+[{{< fa cubes >}} Quantify mesh bias <br> &emsp;&nbsp; in crack path pred.]{.muted}
+:::::
+
+:::::{.column width=61%}
+![](figures/postdoc_mesh_bias.svg){width=100%}
+:::::
+::::::
+
+:::
+
+::::
+
+
+## Postdoc - Applications (non-exhaustive)
+
+[{{< fa bullseye >}} Predict crack propagation to design/optimize real systems]{.alert .large} <br>
+
+::::{.columns}
+
+:::{.column width=36% .fragment}
+
+#### Fracture in 3D-printed structures 
+{{< fa user-friends >}} Thèse de K. Paquet
+
+![](figures/phd_kiara_paquet_T-shirt_specimen.svg){width=55% fig-align=center}
+
+:::
+
+
+:::{.column width=64% .fragment}
+
+#### Optimization of fracture properties *via* heterogeneities
+{{< fa user-friends >}} J. Triclot (LMA) <br>
+[{{< fa cubes >}} Simulation of crack propagation with load control in gcrack]{.muted}
+
+![](figures/postdoc_optmization_dissipation.png){width=64% fig-align=center}
+
+::::::{.columns .fragment}
+:::::{.column width=55%}
+
+#### Fracture in rotating structures
+{{< fa user-friends >}} G. Yakir \& P. Reis (EPFL)
+
+[{{< fa cubes >}} Analytical model of the setup <br> &emsp;&nbsp; using sparse regressions]{.muted}
+
+:::::
+
+:::::{.column width=36%}
+![](figures/postdoc_rotating_structure_setup_annotated.svg){width=100%}
+:::::
+
+::::::
+
+:::
+
+::::
+
+
+# .. et maintenant au LaMCoS
+
+## Bonjour
+
+- Enseignement : 50% FIMI / 50% GM.
+- Recherche : LaMCoS, équipe MULTIMAP.
+
+
+#### Sparse analytical regressions
+[{{< fa user-friends >}} Safran Aircraft Engines (discussion for applications)]{.verysmaller .muted} <br>
+[&nbsp;{{< fa play >}}&nbsp; Applications : Fracture in rotating structures]{.verysmaller .muted} <br>
+&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; [Revisiting fracture mechanics handbooks]{.verysmaller .muted} <br>
+{{< fa bullseye >}} Finding a sparse analytical expression from data <br>
+[&emsp; Simplicity vs accuracy tradeoff]{.muted .verysmaller}

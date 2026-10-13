@@ -1,0 +1,451 @@
+/*-- scss:defaults --*/
+
+/* LAMCOS theme for Quarto revealjs — ported from the beamer LAMCOS theme.
+   Reference: https://quarto.org/docs/presentations/revealjs/themes.html */
+
+/* ============================================================
+   Color palette (beamercolorthemelamcos.sty)
+   ============================================================ */
+$lamcos-dark-blue:  #2b2071; // LAMCOSdblue   (43,32,113)
+$lamcos-blue:       #0563c1; // LAMCOSlblue   (5,99,193)
+$lamcos-red:        #e52818; // LAMCOSred     (229,40,24)
+$lamcos-yellow:     #f9b233; // LAMCOSyellow  (249,178,51)
+$lamcos-orange:     #f39200; // LAMCOSorange  (243,146,0)
+$lamcos-green:      #00a97a; // LAMCOSgreen   (0,169,122)
+
+$lamcos-shade-top:    #483e84; // shadetop    (72,62,132)
+$lamcos-shade-bottom: #7c75a7; // shadebottom (124,117,167)
+
+/* ============================================================
+   Base document / structure colors
+   ============================================================ */
+$body-bg:   #ffffff;
+$body-color: #000000;
+
+$presentation-heading-color: $lamcos-dark-blue; // structure.fg (titles, TOC, items)
+$link-color:                 $lamcos-blue;
+$selection-bg:               rgba($lamcos-blue, 0.3);
+
+$presentation-progress-bg: $lamcos-dark-blue;
+$controls-color:           $lamcos-dark-blue;
+
+/* ============================================================
+   Code / tables / blockquotes
+   ============================================================ */
+$code-color:                 $lamcos-dark-blue;
+$code-bg:                    rgba($lamcos-dark-blue, 0.05);
+$table-border-color:         rgba($lamcos-dark-blue, 0.25);
+$table-header-bg:            rgba($lamcos-dark-blue, 0.08);
+$blockquote-text-color:      $lamcos-dark-blue;
+$blockquote-border-color:    $lamcos-blue;
+
+/* ============================================================
+   Callouts (beamer blocks)
+   ============================================================ */
+$callout-color-note:      $lamcos-dark-blue;
+$callout-color-important: $lamcos-dark-blue;
+$callout-color-tip:       $lamcos-green;
+$callout-color-caution:   $lamcos-orange;
+$callout-color-warning:   $lamcos-orange;
+$callout-color-danger:    $lamcos-red;
+
+/* ============================================================
+   Fonts (beamerfontthemelamcos.sty)
+   ============================================================ */
+$font-family-sans-serif: "Arial";
+
+// Root size — all others derive from it (10pt/11pt/12pt analogue)
+$presentation-font-size-root: 40px;
+
+// Beamer size commands as ratios of \normalsize
+$size-tiny:   0.5;    // \tiny
+$size-script: 0.7;   // \scriptsize
+$size-foot:   0.8;   // \footnotesize
+$size-small:  0.9;   // \small
+$size-large:  1.2;   // \large
+$size-Large:  1.44;  // \Large
+$size-LARGE:  1.728; // \LARGE
+$size-huge:   2.074; // \Huge
+$size-Huge:   2.488; // \Huge
+
+// frametitle/title → \bfseries at normalsize
+$presentation-heading-font-sizes: (
+  h1: $size-LARGE * $presentation-font-size-root,
+  h2: $presentation-font-size-root,
+  h3: $presentation-font-size-root,
+  h4: $presentation-font-size-root
+);
+
+$code-font-size:   $size-foot * $presentation-font-size-root;
+$author-font-size: $size-script * $presentation-font-size-root;
+
+/* ============================================================
+   Geometry (design px, 1920×1080 deck — reveal scales everything)
+   ============================================================ */
+$slide-text-inset: 50px;  // left inset of title and body text
+$headline-height:  30px;  // top bar height (headline + gradient strip)
+
+// Slide number coin: $sqrl = square size; hatch and stripes columns are
+// as wide/tall as the square, so the full SVG is 2×$sqrl.
+$sqrl: 62px;
+$coin-hatch-h:   $sqrl;
+$coin-stripes-w: $sqrl;
+
+// Asset URLs: the compiled theme CSS lives in
+// example_files/libs/revealjs/dist/theme/, and format-resources copies
+// the files to the output root as img/…, hence the 5 ../ hops.
+$coin-svg:        url("../../../../../img/coin-lamcos.svg");
+$corner-gradient: url("../../../../../img/headline-gradient.png");
+
+// Gradient strip width, derived from the bar height at the PNG aspect
+// ratio (1463×91 → 16.077). MULTIPLY, never divide: Dart Sass no longer
+// computes slash-division and `x * 1463 / 91` emits invalid CSS (the
+// gradient then renders at its intrinsic 1463px width and overlaps the
+// navbar). This is the SINGLE anchor of the whole top layout: the
+// gradient occupies the last $corner-gradient-w of the slide, and the
+// headline bar and title box both end at that boundary.
+$corner-gradient-w: $headline-height * 16.077;
+
+/* ============================================================
+   Alerts, sizes, captions, footnotes
+   ============================================================ */
+.reveal .alert { color: $lamcos-red; }
+.reveal .muted { color: $lamcos-blue; }
+
+.reveal .footnotesize {
+  font-size: $size-foot * $presentation-font-size-root;
+}
+
+.reveal .large {
+  font-size: $size-large * $presentation-font-size-root;
+}
+
+// captioncol = LAMCOSlblue
+.reveal caption,
+.reveal figcaption,
+.quarto-figure > figcaption,
+.quarto-table-caption {
+  color: $lamcos-blue;
+  font-size: $size-small * $presentation-font-size-root;
+}
+
+.reveal .footnote,
+.reveal .footer,
+.reveal aside.controls .progress {
+  color: $lamcos-dark-blue;
+}
+.reveal .footnote,
+.reveal .footer {
+  font-size: $size-tiny * $presentation-font-size-root;
+}
+
+/* ============================================================
+   Slide number: the SVG "coin" (hatch + stripes + square), with the
+   digit centered in the bottom-right SQUARE.
+   box-sizing: content-box + paddings reserve the hatch/stripes parts,
+   so the content box (width/height) is the square itself; the SVG
+   (background-size 100% 100%) fills the whole element.
+   ============================================================ */
+.reveal .slide-number {
+  padding: 0 !important; // kill reveal's default padding
+
+  background-image: $coin-svg !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  color: #ffffff !important;
+  font-size: $size-tiny * $presentation-font-size-root !important;
+
+  box-sizing: content-box;
+  padding-top: $coin-hatch-h !important;    // hatch strip on top
+  padding-left: $coin-stripes-w !important;  // color stripes on the left
+  width: $sqrl;                              // content box = the square
+  height: $sqrl;
+  line-height: $sqrl;
+  text-align: center;
+
+  // shift up by the hatch height: the square stays where it was
+  top: calc(93% - $coin-hatch-h) !important;
+  right: 2% !important;
+}
+
+/* ============================================================
+   Headings (frametitle → palette primary, \bfseries)
+   ============================================================ */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  color: $lamcos-dark-blue;
+  text-align: left;
+}
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-weight: bold;
+}
+
+.reveal .title { // \LARGE bold
+  color: $lamcos-dark-blue;
+  font-size: $size-LARGE * $presentation-font-size-root;
+  font-weight: bold;
+}
+.reveal .subtitle { // normalsize, normal weight
+  color: $lamcos-blue;
+  font-size: $presentation-font-size-root;
+  font-weight: normal;
+}
+.reveal .framesubtitle { // \small
+  font-size: $size-small * $presentation-font-size-root;
+  font-weight: normal;
+}
+
+// Section pages: \Large section, \Huge number
+.reveal .title-slide .section-title,
+.reveal section[id^="/"] h1 {
+  font-size: $size-Large * $presentation-font-size-root;
+  font-weight: bold;
+}
+.reveal .section-number {
+  font-size: $size-Huge * $presentation-font-size-root;
+  font-weight: bold;
+}
+
+/* ============================================================
+   TOP LAYOUT — all three boxes are LEFT-anchored and share the SAME
+   boundary `calc(100% - $corner-gradient-w)`, resolved against the
+   same containing block (the slide section's padding box), so the
+   right edge of the headline bar and the title box coincide exactly
+   with the left edge of the gradient strip at every window size.
+   Geometry (verified working — keep as is):
+     - gradient: left = calc(100% - w)         [the boundary itself]
+     - title box: left = -inset, width = calc(100% - w + inset)
+       (the +inset adds back the left overhang)
+     - headline: left = 0, width = calc(100% - w)
+
+   IMPORTANT: everything must live INSIDE a slide <section> so reveal's
+   scale transform applies to it. position:fixed / after-body elements
+   stay unscaled and drift out of alignment outside fullscreen.
+   ============================================================ */
+
+// Gradient strip: a pseudo-element of the section, so it shows on
+// EVERY slide (title slide and section slides included, with or
+// without an h2). It must NOT live inside .headline (hidden on the
+// title slide) — that is why it is a sibling.
+.reveal .slides section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(100% - $corner-gradient-w); // the shared boundary
+  width: $corner-gradient-w;
+  height: $headline-height;
+  background-image: $corner-gradient;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 30;
+}
+
+// Frame title box: flush with the slide edge, tinted, ending at the
+// boundary. The +inset in the width adds back what the -inset in
+// `left` pulled out, so the right edge lands on the boundary.
+.reveal .slides section h2 {
+  flex: 1 1 auto;
+  position: absolute !important;
+  left: calc(-1 * $slide-text-inset);      // box flush with slide edge
+  width: calc(100% - $corner-gradient-w + $slide-text-inset); // + left overhang
+  top: $headline-height !important;        // directly under the top bar
+  margin: 0;
+  padding: 0;
+  padding-left: $slide-text-inset;          // title text inset
+  box-sizing: border-box;
+  background: rgba($lamcos-dark-blue, 0.15) !important;
+}
+
+// Section bar: injected into each slide <section> by headline.lua
+// (cloned on load — a single after-body copy would not be scaled).
+// Starts at left: 0, so the plain boundary expression ends it exactly
+// at the gradient's left edge.
+.headline {
+  font-family: arial;
+  position: absolute;                      // inside the scaled section
+  top: 0;
+  left: 0;
+  width: calc(100% - $corner-gradient-w);  // right edge = gradient start
+  height: $headline-height;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  font-size: $size-tiny * $presentation-font-size-root;
+  background: #ffffff;
+  color: $lamcos-dark-blue;
+  box-sizing: border-box;
+  text-transform: uppercase !important;
+  z-index: 30;
+}
+
+// Each section: equal-width cell, full height, centered
+.headline a {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.headline a:link,
+.headline a:visited {
+  color: $lamcos-dark-blue;
+  text-decoration: none;
+}
+.headline a:hover,
+.headline a:active {
+  color: #ffffff;
+  background-color: $lamcos-dark-blue;
+  text-decoration: none;
+  opacity: 1;
+}
+.headline a.current {
+  opacity: 1;
+  background: rgba($lamcos-dark-blue, 0.15);
+  font-weight: bold;
+}
+
+// Hide the section bar on the title slide (the gradient stays visible).
+.reveal #title-slide .headline,
+.reveal section.lamcos-title-slide .headline,
+.reveal section.title-slide .headline,
+.reveal .slides > section:first-child .headline,
+.reveal .slides > section:first-of-type .headline {
+  display: none !important;
+}
+
+/* ============================================================
+   Slide content
+   ============================================================ */
+// Beamer-style: content top-aligned, text at the common left inset
+.reveal .slides section {
+  text-align: left;
+  padding-top: 140px;
+  padding-left: $slide-text-inset;
+}
+
+// VERIFIED-ALIGNED STATE (do not change blindly): the h2 and the
+// headline live inside an intermediate block inside the section (e.g.
+// a nested/wrapper element), and their percentage bases depend on its
+// width. The direct-child clamp at 1× inset is part of the calibrated
+// geometry — the title box and navbar were verified aligned WITH this
+// rule in place (1×), misaligned with 2×, and misaligned without it.
+.reveal .slides section > *:not(h2) {
+  margin-left: 0;
+  padding-left: 0;
+  max-width: calc(100% - 1 * #{$slide-text-inset});
+}
+.reveal .slides section > ul,
+.reveal .slides section > ol {
+  padding-left: 1.2em; // markers at the inset
+  margin-left: 0;
+}
+
+// Right margin for body text, added WITHOUT touching the wrapper the
+// top chrome depends on: clamps text blocks themselves, wherever they
+// nest. In the verified deck this pulls the wrap point 50px inside
+// the slide's right edge; if text still touches the edge, raise the
+// multiplier, if it wraps too early, lower it — this knob is safe to
+// tune, it cannot affect the title box / navbar / gradient geometry.
+.reveal .slides section p,
+.reveal .slides section ul,
+.reveal .slides section ol,
+.reveal .slides section pre,
+.reveal .slides section blockquote,
+.reveal .slides section table,
+.reveal .slides section .callout {
+  max-width: calc(100% - 1 * #{$slide-text-inset});
+}
+
+/* ============================================================
+   Title slide blocks
+   ============================================================ */
+// author: white on dblue (beamer author band)
+.reveal .quarto-title-block .author {
+  font-size: $author-font-size;
+  color: #ffffff;
+  background: $lamcos-dark-blue;
+  padding: 5px 30px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+// institute: \tiny, outlined
+.reveal .quarto-title-block .institute {
+  font-size: $size-tiny * $presentation-font-size-root;
+  color: $lamcos-dark-blue;
+  padding: 5px 30px;
+  border: solid $lamcos-dark-blue;
+  border-radius: 10px;
+  text-align: left;
+}
+
+// date: \scriptsize, normal weight
+.reveal .quarto-title-block .date {
+  color: $lamcos-dark-blue;
+  font-size: $size-script * $presentation-font-size-root;
+}
+
+/* ============================================================
+   Callouts, buttons
+   ============================================================ */
+.reveal .callout {
+  border-radius: 0.25em;
+}
+.reveal .callout .callout-body {
+  background: rgba($lamcos-dark-blue, 0.05);
+}
+
+// beamer button: white on LAMCOSlblue
+.reveal .btn,
+.reveal button {
+  background: $lamcos-blue;
+  border: 1px solid rgba(#ffffff, 0.35);
+  color: #ffffff;
+}
+.reveal .btn:hover,
+.reveal button:hover {
+  background: $lamcos-dark-blue;
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* ============================================================
+   Logos
+   ============================================================ */
+// Logo bar on the title slide (beamer footline logos)
+.reveal .logo-bar {
+  position: absolute;
+  top: 990px; // clear of the slide-number coin
+  left: 48%;
+  align-items: center;
+  gap: 3%;
+}
+.reveal .logo-bar img {
+  height: 1.05 * $sqrl; // uniform height, natural aspect
+  width: auto;
+  max-height: none !important; // override Quarto's image resizing
+  max-width: none !important;
+}
+
+// Logo on all slides
+.reveal .slide-logo {
+  bottom: -1% !important;
+  left: 2.5% !important;
+  max-height: none !important;
+  max-width: none !important;
+  height: 100px !important;
+  width: unset !important;
+}
+
+// Hide the corner logo on the title slide
+.reveal:has(section.lamcos-title-slide.present) .slide-logo {
+  display: none !important;
+}

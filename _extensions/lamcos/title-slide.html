@@ -1,0 +1,55 @@
+<section class="quarto-title-block lamcos-title-slide" data-vertical-align="top">
+
+<!-- Examples here: https://quarto.org/docs/extensions/listing-revealjs.html#listing-listing-revealjs-page=2 -->
+
+  <!-- LaMCoS Logo  -->
+<img src="_extensions/lamcos/img/logo-lamcos-couleur-dev.png"
+    alt="LaMCoS logo"
+    style="position: absolute; left:6%; top:0%;
+           width:500px; height:auto;
+           max-height:none !important; max-width:none !important;">
+
+<!-- Logo bar (beamer footline "lamcos-plus-logos") -->
+<div class="logo-bar">
+  <img src="_extensions/lamcos/img/logo-cnrs-RVB.png" alt="CNRS">
+  <img src="_extensions/lamcos/img/logo-insa-coul-transparent.png" alt="INSA Lyon">
+  <img src="_extensions/lamcos/img/logo-udl.jpg" alt="Université de Lyon">
+  <img src="_extensions/lamcos/img/logo-carnot-at-trim.jpg" alt="Institut Carnot">
+</div>
+
+
+  <!-- left side -->
+  <div class="left" style="position: absolute; left:320px; top:400px;">
+    <hr class="left" style="margin-left:-5%; width:90%; margin-bottom:40px;">
+    <!-- <hr style="margin-top:0.1em; margin-left:-75px; margin-right:150px;"> -->
+    <h1 class="title">$title$
+    <hr style="margin-left:-5%; width:90%; margin-top:10px;">
+    <!-- <hr style="margin-top:0.1em; margin-left:-75px; margin-right:150px;"> -->
+    <p class="subtitle">$subtitle$</p>
+  </div>
+  
+<!-- author block -->
+<div class="right" style="width:40%; position: absolute; left:48%; top:750px;">
+  <p class="author">
+    $for(by-author)$
+      $by-author.name.literal$$for(by-author.affiliations)$<sup>$it.number$</sup>$endfor$
+    $sep$,
+    $endfor$
+    <br>
+  </p>
+  <p class="institute">
+    $for(by-affiliation)$
+      <sup>$it.number$</sup> $it.name$
+    $sep$<br/>
+    $endfor$
+  </p>
+</div>
+
+<!-- date block -->
+$if(date)$
+<div class="left" style="width: 15%; position: absolute; left:17%; top:1010px;">
+  <p class="date">$date$</p>
+  $endif$
+</div>
+
+</section>

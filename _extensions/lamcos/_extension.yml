@@ -1,0 +1,33 @@
+title: LaMCoS
+author: Flavien Loiseau
+version: 1.0.0
+quarto-required: ">=1.6.0"
+contributes:
+  formats:
+    revealjs:
+      # Theme
+      theme: [custom.scss]
+      # Title slide
+      template-partials:
+        - _extensions/lamcos/title-slide.html   
+      center-title-slide: false
+      # Set resources
+      format-resources: 
+        - img
+      # Set logo
+      logo: _extensions/lamcos/img/logo-lamcos-couleur.png
+      # smaller: true
+      date-format: long
+      slide-number: c
+      # Aspect ratio
+      width: 1920
+      height: 1080
+      margin: 0.0
+      # Bibliography
+      csl: apa.csl
+      # Disable figure auto-stretch
+      auto-stretch: false
+      # Add the typical slide template
+      center: false
+      filters:
+        - headline.lua
