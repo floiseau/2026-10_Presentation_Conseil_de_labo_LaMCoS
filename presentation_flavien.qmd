@@ -88,7 +88,7 @@ bibliography: biblio.bib
 ::: {.column width="22%"}
 **2020--2023**
 
-![](figures/logo_lmps.svg){width="20%" .absolute top=16%}
+![](figures/logo_lmps.svg){width="15%" .absolute top=16%}
 :::
 
 ::: {.column width="57%"}
@@ -329,15 +329,75 @@ Force load + Fracture = Instable
 
 # .. et maintenant au LaMCoS
 
-## Bonjour
+Équipe : MULTIMAP
 
-- Enseignement : 50% FIMI / 50% GM.
-- Recherche : LaMCoS, équipe MULTIMAP.
+Enseignements : FIMI (50%) / GM (50%) en conception.
+
+## Projets de recherche : Axe 1
+
+[{{< fa bullseye >}} **Objectif global:** <br> &emsp; Modéliser et simuler des solides en contact sous sollicitations extrêmes]{.large .alert .smallcaps}
+
+. . .
+
+<br>
+
+::::{.columns}
+:::{.column width=65%}
+#### 1. Comment modéliser et simuler le contact avec des comportements complexes ?
+
+[Développer un cadre numérique flexible pour les MSG <br> $\rightarrow$ Approche variationnelle incrémentale]{.muted}
+
+- Contact approché via la *Third Medium Contact method* (TMC).
+- Extension de la TMC au frottement et à l'usure.
+- Implementation lois de comportements avancées <br> (*e.g.*, multi-physique).
+
+:::
+:::{.column width=35%}
+```{=html}
+<video width="100%" style="display: block; margin: 0 auto;" controls muted autoplay loop>
+  <source src="figures/incvar_illustration_tmc.mp4" type="video/mp4">
+</video>
+```
+:::{.quarto-table-caption}
+TMC dans incvar (WIP).
+:::
+:::
+::::
 
 
-#### Sparse analytical regressions
-[{{< fa user-friends >}} Safran Aircraft Engines (discussion for applications)]{.verysmaller .muted} <br>
-[&nbsp;{{< fa play >}}&nbsp; Applications : Fracture in rotating structures]{.verysmaller .muted} <br>
-&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; [Revisiting fracture mechanics handbooks]{.verysmaller .muted} <br>
-{{< fa bullseye >}} Finding a sparse analytical expression from data <br>
-[&emsp; Simplicity vs accuracy tradeoff]{.muted .verysmaller}
+:::{.footer}
+MSG = Matériaux Standards Généralisés
+:::
+
+
+## Projets de recherche : Axe 2
+
+[{{< fa bullseye >}} **Objectif global:** <br> &emsp; Modéliser et simuler des solides en contact sous sollicitations extrêmes]{.large .alert .smallcaps}
+
+<br>
+
+#### 2. Comment modéliser les matériaux sous sollicitations extrêmes ?
+
+[Développer des modèles de comportements dédiés]{.muted}
+
+- Approches classique et *data-driven* (interprétable, contrainte par la physique).
+- Comportements visés : endommagement, plasticité, couplages multi-physiques.
+- Propriétés matériaux complexes (anisotropie, hétérogénéités, ...).
+
+
+## Projets en cours / naissants
+
+#### Projets de l'ENSTA
+
+- Thèse de K. Paquet : Vers une modélisation avancée de la propagation des fissures dans les matériaux anisotropes grâce à la fabrication additive par dépôt de fil fondu
+- N. Habib : Modelisation and calibration of strongly anisotropic fracture toughness.
+- J. Triclot
+  
+
+#### Projets 
+
+- Modélisation de comportements complexes via régression sparses
+- Modélisation de la fatigue oligocyclique de tôles minces (Liebherr)
+- Approximation analytiques de fonctions de Bueckner par regréssion *sparse* (Safran Aircraft Engines)
+
+## Bibliography
