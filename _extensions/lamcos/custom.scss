@@ -94,8 +94,8 @@ $coin-stripes-w: $sqrl;
 // Asset URLs: the compiled theme CSS lives in
 // example_files/libs/revealjs/dist/theme/, and format-resources copies
 // the files to the output root as img/…, hence the 5 ../ hops.
-$coin-svg:        url("../../../../../img/coin-lamcos.svg");
-$corner-gradient: url("../../../../../img/headline-gradient.png");
+$coin-svg:        url("_extensions/lamcos/img/coin-lamcos.svg");
+$corner-gradient: url("_extensions/lamcos/img/headline-gradient.png");
 
 // Gradient strip width, derived from the bar height at the PNG aspect
 // ratio (1463×91 → 16.077). MULTIPLY, never divide: Dart Sass no longer
