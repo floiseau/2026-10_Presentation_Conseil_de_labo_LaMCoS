@@ -1,7 +1,7 @@
 # Remove generate files
 presentation_flavien_files
 presentation_flavien.html
-img/
+/img/
 
 # Original quarto .gitignore
 .Rproj.user

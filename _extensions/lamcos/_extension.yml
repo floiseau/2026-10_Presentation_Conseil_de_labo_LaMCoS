@@ -11,9 +11,6 @@ contributes:
       template-partials:
         - _extensions/lamcos/title-slide.html   
       center-title-slide: false
-      # Set resources
-      format-resources: 
-        - img/
       # Set logo
       logo: _extensions/lamcos/img/logo-lamcos-couleur.png
       # smaller: true
@@ -31,3 +28,5 @@ contributes:
       center: false
       filters:
         - headline.lua
+      format-resources: 
+        - _extensions/lamcos/img/
