@@ -199,15 +199,13 @@ $corner-gradient-w: $headline-height * 16.077;
   font-weight: normal;
 }
 
-// Section pages: \Large section, \Huge number
-.reveal .title-slide .section-title,
-.reveal section[id^="/"] h1 {
-  font-size: $size-Large * $presentation-font-size-root;
-  font-weight: bold;
-}
-.reveal .section-number {
-  font-size: $size-Huge * $presentation-font-size-root;
-  font-weight: bold;
+/* ============================================================
+ * SECTION Slide
+ * ============================================================ */
+
+/* Section title position — targets slides generated from `#` headings */
+.reveal .slides section.slide.level1 {
+  padding-top: 30% !important;
 }
 
 /* ============================================================
@@ -447,5 +445,34 @@ $corner-gradient-w: $headline-height * 16.077;
 
 // Hide the corner logo on the title slide
 .reveal:has(section.lamcos-title-slide.present) .slide-logo {
+  display: none !important;
+}
+
+/* ============================================================
+   Closing "thanks" slide
+   ============================================================ */
+
+.reveal section.thanks {
+  text-align: center;
+  padding-top: 430px;
+}
+.reveal section.thanks h2 {
+  position: static !important;
+  width: auto;
+  top: auto !important;
+  left: auto;
+  margin: 0 auto;
+  padding: 0;
+  background: none !important;
+  text-align: center;
+  font-size: $size-huge * $presentation-font-size-root;
+}
+.reveal section.thanks p {
+  max-width: none;
+  text-align: center;
+}
+.reveal section.thanks .headline,                    // headline inside the thanks slide
+.reveal section:has(h2.thanks) .headline,            // .thanks ended up on the h2
+.reveal:has(section.thanks.present) .headline {      // headline outside the slide
   display: none !important;
 }

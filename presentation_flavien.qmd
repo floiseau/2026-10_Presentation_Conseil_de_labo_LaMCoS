@@ -9,6 +9,7 @@ author:
       - name: INSA Lyon, CNRS, LaMCoS, UMR5259, 69621 Villeurbanne, France
 date: 2026-10-15
 bibliography: biblio.bib
+embed-resources: true
 ---
 
 # Mon parcours jusqu'à maintenant ...
@@ -329,9 +330,12 @@ Force load + Fracture = Instable
 
 # .. et maintenant au LaMCoS
 
-Équipe : MULTIMAP
+:::{.muted}
 
-Enseignements : FIMI (50%) / GM (50%) en conception.
+- Dans l'équipe MULTIMAP
+- Avec des enseignements en FIMI (50%) et en GM (50%) autour de la conception.
+
+:::
 
 ## Projets de recherche : Axe 1
 
@@ -385,19 +389,42 @@ MSG = Matériaux Standards Généralisés
 - Propriétés matériaux complexes (anisotropie, hétérogénéités, ...).
 
 
-## Projets en cours / naissants
+## Projects in progress {visibility="hidden"}
 
-#### Projets de l'ENSTA
+Modelling of crack propagation in anisotropic materials <br>
+[&emsp; {{< fa user-friends >}} Ph.D. Thesis of Kiara Paquet, co-supervised with Véronique Lazarus & Camille Zolesi (IMSIA)]{.muted .footnotesize}
 
-- Thèse de K. Paquet : Vers une modélisation avancée de la propagation des fissures dans les matériaux anisotropes grâce à la fabrication additive par dépôt de fil fondu
-- N. Habib : Modelisation and calibration of strongly anisotropic fracture toughness.
-- J. Triclot
+<br>
+
+Modelling and calibration of anisotropic fracture toughness <br>
+[&emsp; {{< fa user-friends >}} Nour Habib & Véronique Lazarus (IMSIA)]{.muted .footnotesize}
+
+<br>
+
+Optimization of interfacial fracture with out-of-path heterogeneities <br>
+[&emsp; {{< fa user-friends >}} Julie Triclot (LMA) & Véronique Lazarus (IMSIA)]{.muted .footnotesize}
   
+## New and upcoming projects {visibility="hidden"}
 
-#### Projets 
+Sparse modelling of complex material behaviours (strong couplings, anisotropy, ...) <br>
+[&emsp; {{< fa user-friends >}} Julien Taurines]{.muted .footnotesize}
 
-- Modélisation de comportements complexes via régression sparses
-- Modélisation de la fatigue oligocyclique de tôles minces (Liebherr)
-- Approximation analytiques de fonctions de Bueckner par regréssion *sparse* (Safran Aircraft Engines)
+<br>
+
+Modelling of low-cycle thermal fatigue of thin sheets <br>
+[&emsp; {{< fa user-friends >}} Jordan Ribaud & Vincent Letellier (Liebherr)]{.muted .footnotesize} <br>
+
+<br>
+
+Analytical approximation of Bueckner functions by sparse regression <br>
+[&emsp; {{< fa user-friends >}} Raul De Moura Pinho (Safran Aircraft Engines)]{.muted .footnotesize}
+
+<br>
+Maturation, TRIBOlogie et prédiction de la durabilité fonctionnelle <br> des enrobés bitumineux à FROID sous trafic <br>
+[&emsp; {{< fa user-friends >}} Université Gustave Eiffel (EASE, Nantes) & Université de Limoges (GC2D, Égletons)]{.muted .footnotesize} <br>
+[&emsp; {{< fa cubes >}} Projet ANR (PRC) TRIBO-FROID déposé en début de semaine]{.muted .footnotesize}
+
+
+## Thank you for your attention! {.thanks}
 
 ## Bibliography
