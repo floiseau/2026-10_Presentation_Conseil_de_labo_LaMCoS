@@ -292,7 +292,7 @@ Force load + Fracture = Instable
 :::{.column width=36% .fragment}
 
 #### Fracture in 3D-printed structures 
-{{< fa user-friends >}} Thèse de K. Paquet
+{{< fa user-friends >}} Ph.D. Thesis of K. Paquet
 
 ![](figures/phd_kiara_paquet_T-shirt_specimen.svg){width=55% fig-align=center}
 
@@ -389,7 +389,11 @@ MSG = Matériaux Standards Généralisés
 - Propriétés matériaux complexes (anisotropie, hétérogénéités, ...).
 
 
-## Projects in progress {visibility="hidden"}
+
+
+## Merci pour votre attention! {.thanks}
+
+## Projects in progress {.appendix}
 
 Modelling of crack propagation in anisotropic materials <br>
 [&emsp; {{< fa user-friends >}} Ph.D. Thesis of Kiara Paquet, co-supervised with Véronique Lazarus & Camille Zolesi (IMSIA)]{.muted .footnotesize}
@@ -404,7 +408,7 @@ Modelling and calibration of anisotropic fracture toughness <br>
 Optimization of interfacial fracture with out-of-path heterogeneities <br>
 [&emsp; {{< fa user-friends >}} Julie Triclot (LMA) & Véronique Lazarus (IMSIA)]{.muted .footnotesize}
   
-## New and upcoming projects {visibility="hidden"}
+## New and upcoming projects {.appendix}
 
 Sparse modelling of complex material behaviours (strong couplings, anisotropy, ...) <br>
 [&emsp; {{< fa user-friends >}} Julien Taurines]{.muted .footnotesize}
@@ -424,7 +428,4 @@ Maturation, TRIBOlogie et prédiction de la durabilité fonctionnelle <br> des e
 [&emsp; {{< fa user-friends >}} Université Gustave Eiffel (EASE, Nantes) & Université de Limoges (GC2D, Égletons)]{.muted .footnotesize} <br>
 [&emsp; {{< fa cubes >}} Projet ANR (PRC) TRIBO-FROID déposé en début de semaine]{.muted .footnotesize}
 
-
-## Thank you for your attention! {.thanks}
-
-## Bibliography
+## Bibliography {.appendix}
